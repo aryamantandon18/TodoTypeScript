@@ -4,7 +4,7 @@ import TodoItem from './Components/TodoItem';
 import { getTodos, saveTodos } from './utils/features';
 
 function App() {
-  const [todos,setTodos] = useState<TodoItemType[]>(getTodos);
+  const [todos,setTodos] = useState<TodoItemType[]>(getTodos || []);
   const [title , setTitle] = useState<TodoItemType["title"]>("");
 
   const completeHandler = (id:TodoItemType["id"]):void=>{
@@ -63,7 +63,7 @@ function App() {
         if(e.key == "Enter" && title!=="") submitHandler();
       }}
       />
-      <Button sx={{margin:"1rem 0 ",fontWeight:"700"}} fullWidth varient="contained" onClick={submitHandler}>
+      <Button sx={{margin:"1rem 0 ",fontWeight:"700"}} fullWidth variant="contained" onClick={submitHandler}>
         Add </Button>
     </Container>
     </>
