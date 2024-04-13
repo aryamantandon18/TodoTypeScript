@@ -8,7 +8,7 @@ function App() {
   const [title , setTitle] = useState<TodoItemType["title"]>("");
 
   const completeHandler = (id:TodoItemType["id"]):void=>{
-    const newTodos:TodoItemType = todos.map((i)=>{
+    const newTodos:TodoItemType[] = todos.map((i)=>{
       if(i.id == id) {i.isComplete = !i.isComplete;}
         return i;
     })
@@ -63,7 +63,8 @@ function App() {
         if(e.key == "Enter" && title!=="") submitHandler();
       }}
       />
-      <Button sx={{margin:"1rem 0 ",fontWeight:"700"}} fullWidth varient="contained" onClick={submitHandler}>Add</Button>
+      <Button sx={{margin:"1rem 0 ",fontWeight:"700"}} fullWidth varient="contained" onClick={submitHandler}>
+        Add </Button>
     </Container>
     </>
   )
